@@ -8,11 +8,11 @@ import lombok.ToString;
 @Setter
 @ToString
 public class BoardDTO {
-    private long postId;
-    private int id;
+    private int postId;
+    private int userId;
     private String title;
     private String content;
+    private String createdAt;
     private int viewCnt;
     private int likes;
-    private String createdAt;
 }
