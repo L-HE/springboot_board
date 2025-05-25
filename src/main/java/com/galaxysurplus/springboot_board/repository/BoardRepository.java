@@ -2,6 +2,7 @@ package com.galaxysurplus.springboot_board.repository;
 
 import com.galaxysurplus.springboot_board.dto.BoardDTO;
 import lombok.RequiredArgsConstructor;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
