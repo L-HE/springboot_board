@@ -31,4 +31,9 @@ create table board_file_table
     constraint fk_board_file foreign key(boardId) 
 		references board_table(postId) on delete cascade
 );
-
+-- member_table 생성
+create table member_table
+(
+	id bigint primary key,
+    pw varchar(100)
+);
