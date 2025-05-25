@@ -14,7 +14,9 @@ use board_db;
 create table board_table
 (
 	postId bigint primary key auto_increment,
-    id int(4),
+    userId bigint,
+    constraint fk_id foreign key(userId) 
+		references member_table(id) on delete cascade,
     title varchar(100),
     content varchar(500),
     createdAt datetime default now(),
@@ -37,3 +39,7 @@ create table member_table
 	id bigint primary key,
     pw varchar(100)
 );
+
+show variables like 'datadir';
+
+select * from board_table;
