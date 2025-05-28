@@ -47,4 +47,20 @@ public class BoardController {
         return "detail";
     }
 
+    //수정 버튼 클릭시 수정 화면으로 넘어가도록 하는 메소드(GET)
+    @GetMapping("/update/{postId}")
+    public String update(@PathVariable Long postId, Model model){
+        BoardDTO boardDTO = boardService.findById(postId);
+        model.addAttribute("board", boardDTO);
+        return "update";
+    }
+
+    //DB에 실질적으로 수정 내용을 요청하는 메소드(POST)
+    @PostMapping("/update/{postId}")
+    public String update(BoardDTO boardDTO, Model model){
+        boardService.update(boardDTO);
+        //수정된 글 상세 페이지로 리다이렉트
+        return "redirect:/board/" + boardDTO.getPostId();
+    }
+
 }

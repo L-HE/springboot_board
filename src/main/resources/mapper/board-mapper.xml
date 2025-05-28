@@ -14,4 +14,7 @@
     <select id="findById" parameterType="long" resultType="Katsu.Katsu_spring.dto.BoardDTO">
         select postId, title, userId, content, date_format(createdAt, "%Y-%m-%d") as createdAt, viewCnt, likes from board_table where postId=#{value}
     </select>
+    <update id="update" parameterType="Katsu.Katsu_spring.dto.BoardDTO">
+        update board_table set title=#{title}, content=#{content} where postId=#{postId}
+    </update>
 </mapper>

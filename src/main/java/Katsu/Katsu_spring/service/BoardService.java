@@ -27,4 +27,8 @@ public class BoardService {
     public BoardDTO findById(Long postId){
         return boardRepository.findById(postId);
     }
+
+    public void update(BoardDTO boardDTO){
+        boardRepository.update(boardDTO);
+    }
 }

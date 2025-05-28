@@ -31,4 +31,8 @@ public class BoardRepository {
         System.out.println("findById");
         return sql.selectOne("Katsu.Katsu_spring.repository.BoardRepository.findById", postId);
     }
+
+    public void update(BoardDTO boardDTO){
+        sql.update("Katsu.Katsu_spring.repository.BoardRepository.update", boardDTO);
+    }
 }
