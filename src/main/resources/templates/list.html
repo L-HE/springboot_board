@@ -26,10 +26,10 @@
   </tr>
   <tr th:each="board: ${boardList}">
     <td th:text="${board.postId}"></td>
-    <td>
-      <a th:text="${board.title}" th:href="@{|/{board.postId}}"></a>
-    </td>
     <td th:text="${board.userId}">
+    <td>
+      <a th:text="${board.title}" th:href="@{/board/{postId}(postId=${board.postId})}"></a>
+    </td>
     <td th:text="${board.createdAt}"></td>
     <td th:text="${board.viewCnt}"></td>
     <td th:text="${board.likes}"></td>

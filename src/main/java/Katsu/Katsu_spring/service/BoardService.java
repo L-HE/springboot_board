@@ -17,14 +17,14 @@ public class BoardService {
     }
 
     public List<BoardDTO> findAll(){
-        return (List<BoardDTO>) boardRepository.findAll();
+        return boardRepository.findAll();
     }
 
     public void updateView(Long postId){
         boardRepository.updateView(postId);
     }
 
-    public BoardDTO findBypostId(Long postId){
-        return boardRepository.findBypostId(postId);
+    public BoardDTO findById(Long postId){
+        return boardRepository.findById(postId);
     }
 }

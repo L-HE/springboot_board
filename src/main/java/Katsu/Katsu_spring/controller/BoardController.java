@@ -37,12 +37,12 @@ public class BoardController {
         return "list";
     }
 
-    @GetMapping("/{postId}")
-    public String findBypostId(@PathVariable("postId") Long postId, Model model){
+    @GetMapping("/board/{postId}")
+    public String findById(@PathVariable Long postId, Model model){
         //조회수 처리
         boardService.updateView(postId);
         //상세 내용 가져오기
-        BoardDTO boardDTO = boardService.findBypostId(postId);
+        BoardDTO boardDTO = boardService.findById(postId);
         model.addAttribute("board", boardDTO);
         return "detail";
     }

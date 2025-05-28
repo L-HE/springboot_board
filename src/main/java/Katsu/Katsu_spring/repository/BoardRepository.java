@@ -2,6 +2,7 @@ package Katsu.Katsu_spring.repository;
 
 import Katsu.Katsu_spring.dto.BoardDTO;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -13,19 +14,21 @@ public class BoardRepository {
     private final SqlSessionTemplate sql;
 
     public void save(BoardDTO boardDTO) {
-        sql.insert("Board.save", boardDTO);
+        sql.insert("Katsu.Katsu_spring.repository.BoardRepository.save", boardDTO);
     }
 
     public List<BoardDTO> findAll(){
         System.out.println("findAll");
-        return sql.selectList("Board.findAll");
+        return sql.selectList("Katsu.Katsu_spring.repository.BoardRepository.findAll");
     }
 
-    public void updateView(Long postId){
-        sql.update("Board.updateView", postId);
+    public void updateView(@Param("postId") Long postId){
+        System.out.println("updateView");
+        sql.update("Katsu.Katsu_spring.repository.BoardRepository.updateView", postId);
     }
 
-    public BoardDTO findBypostId(Long postId){
-        return sql.selectOne("Board.findBypostId", postId);
+    public BoardDTO findById(@Param("postId") Long postId){
+        System.out.println("findById");
+        return sql.selectOne("Katsu.Katsu_spring.repository.BoardRepository.findById", postId);
     }
 }
