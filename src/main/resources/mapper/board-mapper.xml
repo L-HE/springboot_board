@@ -5,4 +5,14 @@
     <insert id="save" parameterType="Katsu.Katsu_spring.dto.BoardDTO">
         insert into board_table(title, content) values(#{title}, #{content});
     </insert>
+    <select id="findAll" resultType="board">
+        select postId, title, userId, date_format(createdAt, "%Y-%m-%d") as createdAt, viewCnt, likes from board_table order by postId desc
+    </select>
+    <update id="updateView" parameterType="Long">
+        update board_table
+        set viewCnt = viewCnt+1 where postId=#{postId}
+    </update>
+    <select id="findBypostId" parameterType="Long" resultType="board">
+        select postId, title, userId, content, date_format(createdAt, "%Y-%m-%d") as createdAt, viewCnt, likes from board_table where postId=#{postId}
+    </select>
 </mapper>

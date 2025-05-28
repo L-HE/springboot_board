@@ -5,6 +5,8 @@ import Katsu.Katsu_spring.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BoardService {
@@ -12,5 +14,17 @@ public class BoardService {
 
     public void save(BoardDTO boardDTO) {
         boardRepository.save(boardDTO);
+    }
+
+    public List<BoardDTO> findAll(){
+        return (List<BoardDTO>) boardRepository.findAll();
+    }
+
+    public void updateView(Long postId){
+        boardRepository.updateView(postId);
+    }
+
+    public BoardDTO findBypostId(Long postId){
+        return boardRepository.findBypostId(postId);
     }
 }
