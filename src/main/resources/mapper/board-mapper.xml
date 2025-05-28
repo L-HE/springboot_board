@@ -17,4 +17,7 @@
     <update id="update" parameterType="Katsu.Katsu_spring.dto.BoardDTO">
         update board_table set title=#{title}, content=#{content} where postId=#{postId}
     </update>
+    <delete id="delete" parameterType="Long">
+        delete from board_table where postId=#{postId}
+    </delete>
 </mapper>

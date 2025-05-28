@@ -35,4 +35,8 @@ public class BoardRepository {
     public void update(BoardDTO boardDTO){
         sql.update("Katsu.Katsu_spring.repository.BoardRepository.update", boardDTO);
     }
+
+    public void delete(Long postId){
+        sql.delete("Katsu.Katsu_spring.repository.BoardRepository.delete", postId);
+    }
 }
